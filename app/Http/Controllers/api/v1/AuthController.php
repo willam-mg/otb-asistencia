@@ -12,7 +12,7 @@ class AuthController extends Controller
     public function signup(Request $request)
     {
         $requestData  = $request->validate([
-            'name' => 'required|max:50',
+            'nombre' => 'required|max:50',
             'email' => 'required|email|unique:users|max:50',
             'password' => 'required|confirmed'
         ]);
