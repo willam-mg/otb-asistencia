@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInquilinosTable extends Migration
+class CreateEventosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,18 @@ class CreateInquilinosTable extends Migration
      */
     public function up()
     {
-        Schema::create('inquilinos', function (Blueprint $table) {
+        Schema::create('eventos', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha_inicio_contrato');
-            $table->date('fecha_fin_contrato')->nullable();
-            $table->boolean('permiso')->default(false);
-            $table->tinyInteger('estado')->default(1)->comment('1 = activo, 2 = inactivo');
+            $table->string('nombre');
+            $table->date('fecha');
+            $table->time('hora_inicio');
+            $table->time('hora_fin');
+            $table->text('descripcion');
+            $table->string('lugar');
+            $table->decimal('monto_recaudado', 11, 2);
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('residente_id')->constrained('residentes');
+            $table->foreignId('inquilino_id')->nullable()->constrained('inquilinos');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,6 +37,6 @@ class CreateInquilinosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inquilinos');
+        Schema::dropIfExists('eventos');
     }
 }

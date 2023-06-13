@@ -11,6 +11,12 @@ use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
+    const TIPO_RESIDENTE = 1;
+    const TIPO_INQUILINO = 2;
+    
+    const ACTIVO = 1;
+    const INACTIVO = 2;
+
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     /**
@@ -19,14 +25,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'nombre',
-        'apellido',
-        'direccion',
-        'telefono',
-        'celular',
-        'numero_domicilio',
-        'calle',
-        'foto',
         'estado',
         'email',
         'email_verified_at',
