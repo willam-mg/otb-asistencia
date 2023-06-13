@@ -17,15 +17,14 @@ class CreateResidentesTable extends Migration
         Schema::create('residentes', function (Blueprint $table) {
             $table->id();
             $table->string('nombres');
-            $table->string('apellidos')->nullable();
+            $table->string('apellidos');
             $table->text('direccion')->nullable();
             $table->string('telefono')->nullable();
             $table->string('celular')->nullable();
             $table->string('numero_domicilio')->nullable();
             $table->string('calle')->nullable();
-            $table->string('foto', 100)->nullable();
+            $table->string('src_foto', 100)->nullable();
             $table->foreignId('user_id')->constrained('users');
-            $table->tinyInteger('tipo')->default(User::TIPO_RESIDENTE)->comment('1 = residente, 2 = inquilino');
             $table->timestamps();
             $table->softDeletes();
         });

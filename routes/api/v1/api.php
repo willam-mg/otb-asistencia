@@ -23,3 +23,12 @@ Route::prefix('auth')->group(function () {
     Route::post('/login', 'AuthController@login');
     Route::post('/signup', 'AuthController@signup');
 });
+
+// Residente
+Route::group(['prefix' => 'residentes'], function () {
+    Route::get('/', 'ResidenteController@search');
+    Route::post('create', 'ResidenteController@store');
+    Route::put('update/{id}', 'ResidenteController@update');
+    Route::get('show/{id}', 'ResidenteController@show');
+    Route::delete('delete/{id}', 'ResidenteController@delete');
+});

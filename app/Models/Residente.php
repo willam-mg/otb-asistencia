@@ -18,8 +18,37 @@ class Residente extends Model
         'celular',
         'numero_domicilio',
         'calle',
-        'foto',
+        'src_foto',
         'user_id',
-        'tipo',
     ];
+
+    protected $appends = [
+        'foto',
+        'foto_thumbnail',
+        'foto_thumbnail_sm',
+    ];
+
+    /**
+     * Get foto attribute.
+     */
+    public function getFotoAttribute()
+    {
+        return $this->src_foto ? url('/') . '/storage/uploads/' . $this->src_foto : null;
+    }
+
+    /**
+     * Get foto thumbnail attribute.
+     */
+    public function getFotoThumbnailAttribute()
+    {
+        return $this->src_foto ? url('/') . '/storage/uploads/thumbnail/' . $this->src_foto : null;
+    }
+
+    /**
+     * Get foto small thumbnail attribute.
+     */
+    public function getFotoThumbnailSmAttribute()
+    {
+        return $this->src_foto ? url('/') . '/storage/uploads/thumbnail-small/' . $this->src_foto : null;
+    }
 }
