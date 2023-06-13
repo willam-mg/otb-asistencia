@@ -15,6 +15,9 @@ class CreateInquilinosTable extends Migration
     {
         Schema::create('inquilinos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombres');
+            $table->string('apellidos');
+            $table->string('ci');
             $table->date('fecha_inicio_contrato');
             $table->date('fecha_fin_contrato')->nullable();
             $table->boolean('permiso')->default(false);

@@ -16,8 +16,8 @@ class CreateResidentesTable extends Migration
     {
         Schema::create('residentes', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('apellido')->nullable();
+            $table->string('nombres');
+            $table->string('apellidos')->nullable();
             $table->text('direccion')->nullable();
             $table->string('telefono')->nullable();
             $table->string('celular')->nullable();
