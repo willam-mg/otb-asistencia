@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Inquilino extends Model
 {
+    const ESTADO_ACTIVO = 1;
+    const ESTADO_INACTIVO = 2;
+    
     use HasFactory, SoftDeletes;
 
     protected $fillable = [

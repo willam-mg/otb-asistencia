@@ -11,10 +11,25 @@ use Illuminate\Support\Facades\DB;
 class ResidenteController extends Controller
 {
     use ImageTrait;
+    
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Listado de Residentes
+     * 
+     * @group Residentes
+     * @authenticated
+     * @response scenario=success [
+     *     {
+     *         "nombres": "juan",
+     *         "apellidos": "peres",
+     *         "direccion": "Av villazon",
+     *         "telefono": "7898789",
+     *         "celular": "78967887",
+     *         "numero_domicilio": "sin numero",
+     *         "calle": "calle 17 de octubre",
+     *         "src_foto": "",
+     *         "user_id": 1,
+     *     }
+     * ]
      */
     public function index(Request $request)
     {
@@ -36,10 +51,34 @@ class ResidenteController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Create residente
+     * 
+     * @group Residentes
+     * @authenticated
+     * @bodyParam. Example: {
+     *         "nombres": "juan",
+     *         "apellidos": "peres",
+     *         "direccion": "Av villazon",
+     *         "telefono": "7898789",
+     *         "celular": "78967887",
+     *         "numero_domicilio": "sin numero",
+     *         "calle": "calle 17 de octubre",
+     *         "src_foto": "",
+     *         "user_id": 1,
+     * }
+     * @response scenario=success [
+     *     {
+     *         "nombres": "juan",
+     *         "apellidos": "peres",
+     *         "direccion": "Av villazon",
+     *         "telefono": "7898789",
+     *         "celular": "78967887",
+     *         "numero_domicilio": "sin numero",
+     *         "calle": "calle 17 de octubre",
+     *         "src_foto": "",
+     *         "user_id": 1,
+     *     }
+     * ]
      */
     public function store(Request $request)
     {
@@ -76,10 +115,24 @@ class ResidenteController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Show residente
+     * 
+     * @group Residentes
+     * @authenticated
+     * @bodyParam id int 
+     * @response scenario=success [
+     *     {
+     *         "nombres": "juan",
+     *         "apellidos": "peres",
+     *         "direccion": "Av villazon",
+     *         "telefono": "7898789",
+     *         "celular": "78967887",
+     *         "numero_domicilio": "sin numero",
+     *         "calle": "calle 17 de octubre",
+     *         "src_foto": "",
+     *         "user_id": 1,
+     *     }
+     * ]
      */
     public function show($id)
     {
@@ -87,11 +140,33 @@ class ResidenteController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Update residente
+     * 
+     * @group Residentes
+     * @authenticated
+     * @bodyParam id int 
+     * @bodyParam. Example: {
+     *     "nombres": "juan",
+     *     "apellidos": "peres",
+     *     "direccion": "Av villazon",
+     *     "telefono": "7898789",
+     *     "celular": "78967887",
+     *     "numero_domicilio": "sin numero",
+     *     "calle": "calle 17 de octubre",
+     *     "src_foto": "",
+     *     "user_id": 1,
+     * }
+     * @response scenario=success {
+     *     "nombres": "juan",
+     *     "apellidos": "peres",
+     *     "direccion": "Av villazon",
+     *     "telefono": "7898789",
+     *     "celular": "78967887",
+     *     "numero_domicilio": "sin numero",
+     *     "calle": "calle 17 de octubre",
+     *     "src_foto": "",
+     *     "user_id": 1,
+     * }
      */
     public function update(Request $request, $id)
     {
@@ -134,10 +209,14 @@ class ResidenteController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Update residente
+     * 
+     * @group Residente
+     * @authenticated
+     * @bodyParam id int 
+     * @response scenario=success {
+     *     "data": "Eliminado",
+     * }
      */
     public function destroy($id)
     {

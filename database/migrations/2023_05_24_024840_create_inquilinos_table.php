@@ -24,6 +24,7 @@ class CreateInquilinosTable extends Migration
             $table->tinyInteger('estado')->default(1)->comment('1 = activo, 2 = inactivo');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('residente_id')->constrained('residentes');
+            $table->string('src_foto', 100)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
