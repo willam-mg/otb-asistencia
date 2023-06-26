@@ -30,5 +30,14 @@ Route::group(['prefix' => 'residentes'], function () {
     Route::post('create', 'ResidenteController@store');
     Route::put('update/{id}', 'ResidenteController@update');
     Route::get('show/{id}', 'ResidenteController@show');
-    Route::delete('delete/{id}', 'ResidenteController@delete');
+    Route::delete('delete/{id}', 'ResidenteController@destroy');
+});
+
+// Inquilino
+Route::group(['prefix' => 'inquilinos'], function () {
+    Route::get('/', 'ResidenteController@search');
+    Route::post('create', 'ResidenteController@store');
+    Route::put('update/{id}', 'ResidenteController@update');
+    Route::get('show/{id}', 'ResidenteController@show');
+    Route::delete('delete/{id}', 'ResidenteController@destroy');
 });
