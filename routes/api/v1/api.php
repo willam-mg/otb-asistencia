@@ -26,7 +26,7 @@ Route::prefix('auth')->group(function () {
 
 // Residente
 Route::group(['prefix' => 'residentes'], function () {
-    Route::get('/', 'ResidenteController@search');
+    Route::get('/', 'ResidenteController@index');
     Route::post('create', 'ResidenteController@store');
     Route::put('update/{id}', 'ResidenteController@update');
     Route::get('show/{id}', 'ResidenteController@show');
@@ -35,7 +35,7 @@ Route::group(['prefix' => 'residentes'], function () {
 
 // Inquilino
 Route::group(['prefix' => 'inquilinos'], function () {
-    Route::get('/', 'ResidenteController@search');
+    Route::get('/', 'ResidenteController@index');
     Route::post('create', 'ResidenteController@store');
     Route::put('update/{id}', 'ResidenteController@update');
     Route::get('show/{id}', 'ResidenteController@show');
