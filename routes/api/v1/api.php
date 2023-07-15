@@ -41,3 +41,21 @@ Route::group(['prefix' => 'inquilinos'], function () {
     Route::get('show/{id}', 'ResidenteController@show');
     Route::delete('delete/{id}', 'ResidenteController@destroy');
 });
+
+// Eventos
+Route::group(['prefix' => 'eventos'], function () {
+    Route::get('/', 'EventoController@index');
+    Route::post('create', 'EventoController@store');
+    Route::put('update/{id}', 'EventoController@update');
+    Route::get('show/{id}', 'EventoController@show');
+    Route::delete('delete/{id}', 'EventoController@destroy');
+});
+
+// Asistencias
+Route::group(['prefix' => 'asistencias'], function () {
+    Route::get('/', 'AsistenciaController@index');
+    Route::post('create', 'AsistenciaController@store');
+    Route::put('update/{id}', 'AsistenciaController@update');
+    Route::get('show/{id}', 'AsistenciaController@show');
+    Route::delete('delete/{id}', 'AsistenciaController@destroy');
+});
