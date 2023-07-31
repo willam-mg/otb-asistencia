@@ -59,3 +59,12 @@ Route::group(['prefix' => 'asistencias'], function () {
     Route::get('show/{id}', 'AsistenciaController@show');
     Route::delete('delete/{id}', 'AsistenciaController@destroy');
 });
+
+// Asistencias
+Route::group(['prefix' => 'multas'], function () {
+    Route::get('/', 'MultaController@index');
+    Route::post('create', 'MultaController@store');
+    Route::put('update/{id}', 'MultaController@update');
+    Route::get('show/{id}', 'MultaController@show');
+    Route::delete('delete/{id}', 'MultaController@destroy');
+});
